@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Enerjisi ve Isı Soğurma Deneyleri</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ana Sayfa -->
+    <div id="homepage" class="page active">
+        <header class="main-header">
+            <div class="container">
+                <h1 class="main-title">Güneş Enerjisi ve Isı Soğurma Deneyleri</h1>
+                <p class="subtitle">İnteraktif deneylerle ışık ve ısı ilişkisini keşfedin</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="experiments-grid">
+                <div class="experiment-card" onclick="navigateTo('experiment1')">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #FFD6A5 0%, #FFABAB 100%);">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="9" rx="1"/>
+                            <rect x="13" y="3" width="7" height="9" rx="1"/>
+                            <circle cx="12" cy="2" r="1"/>
+                            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                        </svg>
+                    </div>
+                    <h2>Renkli Karton Deneyi</h2>
+                    <p>Farklı renklerdeki kartonların güneş ışığını nasıl emdiğini ve ısındığını gözlemleyin.</p>
+                    <div class="card-footer">
+                        <span class="badge">25 saniye</span>
+                        <span class="badge">5 materyal</span>
+                    </div>
+                </div>
+
+                <div class="experiment-card" onclick="navigateTo('experiment2')">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #A9D6E5 0%, #89C2D9 100%);">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h2>Su Deposu Modeli</h2>
+                    <p>Farklı renklerdeki kaplarda suyun nasıl ısındığını ve konveksiyon akımlarını inceleyin.</p>
+                    <div class="card-footer">
+                        <span class="badge">25 saniye</span>
+                        <span class="badge">3 kap</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="learning-outcomes">
+                <h2>Öğrenme Kazanımları</h2>
+                <div class="outcomes-grid">
+                    <div class="outcome-item">
+                        <div class="outcome-number">1</div>
+                        <p>Işığın farklı yüzeyler tarafından emilmesi ve yansıtılması arasındaki ilişkiyi anlar.</p>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-number">2</div>
+                        <p>Yüzey renginin güneş enerjisi soğurma kapasitesini nasıl etkilediğini gözlemler.</p>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-number">3</div>
+                        <p>Günlük hayatta enerji verimliliği için renk seçiminin önemini kavrar.</p>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="outcome-number">4</div>
+                        <p>Bilimsel deney sürecini takip ederek veri toplama ve analiz becerilerini geliştirir.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2024 Fen Deneyleri Simülasyonu - Eğitim Amaçlıdır</p>
+        </footer>
+    </div>
+
+    <!-- Deney 1: Renkli Karton -->
+    <div id="experiment1" class="page experiment-page">
+        <header class="experiment-header">
+            <button class="back-button" onclick="navigateTo('homepage')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Ana Sayfa
+            </button>
+            <h1>Renkli Karton Deneyi</h1>
+        </header>
+
+        <div class="experiment-container">
+            <div class="controls-panel">
+                <div class="control-group">
+                    <button id="exp1-start" class="control-btn primary" onclick="experiment1.start()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Başlat
+                    </button>
+                    <button id="exp1-pause" class="control-btn" onclick="experiment1.pause()" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+                        </svg>
+                        Durdur
+                    </button>
+                    <button id="exp1-reset" class="control-btn" onclick="experiment1.reset()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 4v6h6M23 20v-6h-6"/>
+                            <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                        </svg>
+                        Sıfırla
+                    </button>
+                </div>
+
+                <div class="control-group">
+                    <label>Hız:</label>
+                    <button class="speed-btn" onclick="experiment1.setSpeed(0.5)">0.5×</button>
+                    <button class="speed-btn active" onclick="experiment1.setSpeed(1)">1×</button>
+                    <button class="speed-btn" onclick="experiment1.setSpeed(2)">2×</button>
+                </div>
+
+                <div class="timer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span id="exp1-timer">0.0s</span>
+                </div>
+            </div>
+
+            <div class="simulation-area">
+                <canvas id="exp1-canvas" width="1200" height="500"></canvas>
+                <div class="cartons-container" id="exp1-cartons">
+                    <!-- Kartonlar JavaScript ile oluşturulacak -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deney 2: Su Deposu -->
+    <div id="experiment2" class="page experiment-page">
+        <header class="experiment-header">
+            <button class="back-button" onclick="navigateTo('homepage')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Ana Sayfa
+            </button>
+            <h1>Su Deposu Modeli</h1>
+        </header>
+
+        <div class="experiment-container">
+            <div class="controls-panel">
+                <div class="control-group">
+                    <button id="exp2-start" class="control-btn primary" onclick="experiment2.start()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Başlat
+                    </button>
+                    <button id="exp2-pause" class="control-btn" onclick="experiment2.pause()" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+                        </svg>
+                        Durdur
+                    </button>
+                    <button id="exp2-reset" class="control-btn" onclick="experiment2.reset()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 4v6h6M23 20v-6h-6"/>
+                            <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                        </svg>
+                        Sıfırla
+                    </button>
+                </div>
+
+                <div class="control-group">
+                    <label>Hız:</label>
+                    <button class="speed-btn" onclick="experiment2.setSpeed(0.5)">0.5×</button>
+                    <button class="speed-btn active" onclick="experiment2.setSpeed(1)">1×</button>
+                    <button class="speed-btn" onclick="experiment2.setSpeed(2)">2×</button>
+                </div>
+
+                <div class="timer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span id="exp2-timer">0.0s</span>
+                </div>
+            </div>
+
+            <div class="simulation-area">
+                <canvas id="exp2-canvas" width="1200" height="500"></canvas>
+                <div class="containers-wrapper" id="exp2-containers">
+                    <!-- Kaplar JavaScript ile oluşturulacak -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sonuç Modal -->
+    <div id="results-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Deney Sonuçları</h2>
+                <button class="close-modal" onclick="closeResultsModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="results-content">
+                <!-- Sonuçlar JavaScript ile doldurulacak -->
+            </div>
+            <div class="modal-footer">
+                <button class="control-btn primary" onclick="closeResultsModal()">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/main.js"></script>
+</body>
+</html>
